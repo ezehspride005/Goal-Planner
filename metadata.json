@@ -1,0 +1,6 @@
+{
+  "name": "Goal Planner",
+  "description": "Feminine, AI-powered progressive web app that breaks down your yearly goal into fixed monthly targets, weekly actions, and daily to-dos with backward-math precision and token rewards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

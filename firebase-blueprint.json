@@ -1,0 +1,47 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User account profile and personalization settings",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 256 },
+        "displayName": { "type": "string", "maxLength": 100 },
+        "firstName": { "type": "string", "maxLength": 50 },
+        "appPurpose": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 },
+        "onboarded": { "type": "boolean" }
+      },
+      "required": ["uid", "email"]
+    },
+    "GoalPlan": {
+      "title": "GoalPlan",
+      "description": "User's yearly goal roadmap, monthly targets, daily tasks, and tokens",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "ownerId": { "type": "string", "maxLength": 128 },
+        "yearlyGoal": { "type": "string", "maxLength": 500 },
+        "metricName": { "type": "string", "maxLength": 100 },
+        "yearlyTargetNumber": { "type": "number" },
+        "tokensEarned": { "type": "number" },
+        "dayStreak": { "type": "number" },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "ownerId", "yearlyGoal"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Private user profile and personalization preferences"
+    },
+    "/plans/{planId}": {
+      "schema": { "$ref": "#/entities/GoalPlan" },
+      "description": "Private goal roadmap belonging to a specific authenticated user"
+    }
+  }
+}
